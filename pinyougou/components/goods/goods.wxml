@@ -1,0 +1,17 @@
+<!--components/goods/goods.wxml-->
+
+  <checkbox-group class="checkbox-group" bindchange="bindCheckboxChange" id="{{item.goods_id}}">
+    <checkbox class="calcu"  value="{{item.goods_id}}"  checked />
+    <image class="goods-image" src="{{item.goods_small_logo}}"></image>
+    <view class="description">
+      <view class="content"><text>{{item.goods_name}}</text></view>
+      <view class="price"><text>￥{{item.goods_price}}</text></view>
+      <view class="count">
+        <button class="mini-btn" type="default" size="mini" bindtap="decrease">-</button>
+        <input class="weui-input" type="number" value="{{goodsNumber}}" />
+        <button class="mini-btn" type="default" size="mini" bindtap="increase">+</button>
+      </view>
+      <view class="delete">|<text>删除</text>
+      </view>
+    </view>
+  </checkbox-group>

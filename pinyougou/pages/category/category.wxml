@@ -1,0 +1,24 @@
+<!--pages/category/category.wxml-->
+<view class="category-container">
+  <scroll-view scroll-y="true" class="tabs" enhanced show-scrollbar="{{false}}" paging-enabled bindscrolltolower="setScrollTopToLower">
+    <block wx:for="{{categories}}" wx:key="index">
+      <view class="tab {{activeIndex==index?'active':''}}"  bindtap="tapIndex" data-index="{{index}}"><text>{{item.cat_name}}</text></view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="contents" >
+    <block wx:for="{{categories[activeIndex].children}}" wx:key="index">
+      <view class="content">
+        <view class="title"><text>/{{item.cat_name}}/</text></view>
+        <view class="products-wrapper">
+          <block wx:for="{{item.children}}" wx:key="index">
+            <view class="products">
+              <image src="{{item.cat_icon}}"></image>
+              <view class="product-text"><text>{{item.cat_name}}</text></view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  
+</view>

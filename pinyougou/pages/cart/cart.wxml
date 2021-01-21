@@ -1,0 +1,21 @@
+<!--pages/cart/cart.wxml-->
+<view class="cart-container">
+  <view class="title">
+    <image></image><text>品优购生活馆</text>
+  </view>
+  <view class="cart-item">
+    <block wx:for="{{goodsList}}" wx:key="index">
+    <goods item="{{item}}" bindcheckChange="bindCheckboxChange" bindcountGoodsNumber="countTotalPrice"></goods>
+  </block>
+  </view>
+  
+  <view class="pay">
+    <view class="calcu">
+      <checkbox value="{{all}}" checked="{{allChecked}}" />全选</view>
+    <view>
+      <view>合计￥<text class="total-price">{{totalPrice}}</text></view>
+      <view><text>包含运费</text></view>
+    </view>
+    <view class="submit-pay" bindtap="orderPay"><text>去结算({{checks.length}})</text></view>
+  </view>
+</view>

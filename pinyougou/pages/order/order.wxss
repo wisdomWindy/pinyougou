@@ -1,0 +1,86 @@
+/* pages/order/order.wxss */
+.order-container{
+  display: flow-root;
+}
+.order-container .addr {
+  height:180rpx;
+}
+.order-container .addr button{
+  margin-top:40rpx;
+  margin-bottom:20rpx;
+  background-color:#eee;
+  color:#666;
+  font-weight: normal;
+}
+.order-container .show-addr{
+  margin-top:40rpx;
+  height:180rpx;
+}
+.order-container .show-addr .receiver{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 10rpx;
+  font-size:14px;
+  color:#999;
+}
+.order-container .show-addr .address{
+  padding:0 10rpx;
+  display: flex;
+  align-items: center;
+  margin-top:20rpx;
+  font-size:14px;
+  color:#999;
+}
+.order-container .border-image{
+  width:750rpx;
+  height:15rpx;
+}
+.order-container .order-list .order-item{
+  display: flex;
+  align-items: center;
+  margin-bottom:20rpx;
+}
+.order-container .order-list .order-item image{
+  width:200rpx;
+  height:200rpx;
+}
+.order-container .order-list .order-item .right .introduce{
+  height:200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:200rpx;
+}
+.order-container .order-list .order-item .right .cash{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 10rpx;
+}
+.order-container .order-list .order-item .right .cash .price{
+  color:red;
+  font-size:14px;
+}
+.order-container .footer .money{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 10rpx;
+  font-size:10px;
+  color:#999;
+}
+.order-container .footer .deliver-fee{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 10rpx;
+  font-size:10px;
+  color:#999;
+}
+.order-container .footer button{
+  background-color:#eee;
+  color:#666;
+  margin-bottom:10rpx;
+  font-weight:normal;
+}

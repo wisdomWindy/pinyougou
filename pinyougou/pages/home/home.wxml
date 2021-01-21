@@ -1,0 +1,45 @@
+<!--pages/home/home.wxml-->
+<view class="home-container">
+  <swiper indicator-dots
+        autoplay interval="{{3000}}" duration="{{1000}}" circular>
+        <block wx:for="{{swiperData}}" wx:key="index">
+          <swiper-item>
+            <navigator url="{{item.navigator_url}}" open-type="{{item.open_type}}" hover-class="navigator-hover">
+              <image src="{{item.image_src}}"></image>
+            </navigator>
+          </swiper-item>
+        </block>
+  </swiper>
+  <view class="navigator">
+    <block wx:for="{{navigatorData}}" wx:key="index">
+      <navigator url="{{item.navigator_url?item.navigator_url:''}}" open-type="{{item.open_type?item.open_type:''}}" hover-class="navigator-hover">
+        <image src="{{item.image_src}}"></image>
+      </navigator>
+    </block>
+  </view>
+  <view class="floors">
+    <block wx:for="{{floorData}}" wx:key="index">
+      <view class="floor">
+        <image class="floor-title" src="{{item.floor_title.image_src}}"></image>
+          <view class="product-list">
+            <view class="left">
+              <block wx:for="{{item.product_list}}" wx:key="index" >
+              <navigator wx:if="{{index==0}}" class="{{index==0?'left':''}}" url="{{item.navigator_url?item.navigator_url:''}}" open-type="{{item.open_type?item.\open_type:''}}" >
+                <image src="{{item.image_src}}"></image>
+              </navigator>
+            </block>
+            </view>
+            <view class="right">
+              <block wx:for="{{item.product_list}}" wx:key="index" >
+              <navigator wx:if="{{index>0}}" class="{{index==0?'left':''}}" url="{{item.navigator_url?item.navigator_url:''}}" open-type="{{item.open_type?item.open_type:''}}" >
+                <image src="{{item.image_src}}"></image>
+              </navigator>
+            </block>
+            </view>
+            
+          </view>
+      </view>
+    </block>
+    
+  </view>
+</view>
