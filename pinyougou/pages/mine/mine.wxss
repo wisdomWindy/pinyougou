@@ -1,0 +1,77 @@
+/* pages/mine/mine.wxss */
+.mine-container{
+  display: flow-root;
+  background-color:#eee;
+  height:100vh;
+}
+.mine-container .profile{
+  width:750rpx;
+  height:400rpx;
+  background-color:#eee;
+}
+.mine-container .profile image{
+  width:150rpx;
+  height:150rpx;
+  border-radius:50%;
+  margin-top:20rpx;
+  margin-left:50%;
+  transform:translate(-50%);
+}
+.mine-container .profile .profile-name{
+  text-align:center;
+  margin-bottom:30rpx;
+}
+.mine-container .profile button{
+  height:80rpx;
+  width:260rpx;
+  line-height:40rpx;
+  font-size:12px;
+  color:black;
+  background-color:#fff;
+  text-align:center;
+}
+.mine-container .cords{
+  display: flex;
+  height:100rpx;
+  align-items: center;
+  justify-content: space-between;
+  padding-left:20rpx;
+  padding-right:20rpx;
+  background-color:#fff;
+}
+.mine-container .cords view{
+  text-align:center;
+  font-size:12px;
+}
+.mine-container .addr-setting{
+ background-color:#fff;
+ margin-top:30rpx;
+ height:60rpx;
+ line-height:60rpx;
+ font-size:12px;
+ padding:20rpx;
+ border-top:1px solid #ddd;
+}
+.mine-container .menu {
+  margin-top:30rpx;
+  height:350rpx;
+  display: flow-root;
+  background-color:#fff;
+  border-top:1px solid #ddd;
+}
+.mine-container .menu .menu-item{
+  display: flex;
+  justify-content: space-between;
+  padding-right:10rpx;
+  padding-top:10rpx;
+  height:80rpx;
+  line-height:80rpx;
+  margin-left:20rpx;
+  font-size:12px;
+  color:#999;
+  border-bottom:1px solid #ddd;
+}
+.mine-container .menu image{
+  width:20rpx;
+  height:20rpx;
+}

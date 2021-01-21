@@ -1,0 +1,44 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine-container">
+  <view class="profile">
+    <image src="{{profile}}"></image>
+    <view class="profile-name"><text>{{nickName}}</text></view>
+    <button type="primary" bindtap="login">授权登录</button>
+  </view>
+  <view class="cords">
+    <view class="start-shop">
+      <view><text>0</text></view>
+      <view><text>收藏的店铺</text></view>
+    </view>
+    <view class="start-goods">
+      <view><text>0</text></view>
+      <view><text>收藏的商品</text></view>
+    </view>
+    <view class="focus-goods">
+      <view><text>0</text></view>
+      <view><text>关注的商品</text></view>
+    </view>
+    <view class="self-foot">
+      <view><text>0</text></view>
+      <view><text>我的足迹</text></view>
+    </view>
+  </view>
+  <view class="addr-setting">
+    <view><text>收货地址管理</text></view>
+  <!--   <image src="../../assets/catIcon.png"></image> -->
+  </view>
+  <view class="menu">
+    <view class="menu-item">
+      <view><text>联系客服</text></view>
+      <view><text>400-618-4000</text></view>
+    </view>
+    <view class="menu-item">
+      <view><text>意见反馈</text></view>
+      <image></image>
+    </view>
+    <view class="menu-item">
+      <view><text>关于我们</text></view>
+      <image></image>
+    </view>
+  </view>
+</view>

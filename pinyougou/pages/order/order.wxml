@@ -1,0 +1,25 @@
+<!--pages/order/order.wxml-->
+<view class="order-container">
+  <view class="addr" wx:if="{{addr?false:true}}">
+    <button type="primary" bindtap="chooseAddr">添加地址</button>
+  </view>
+  <view class="show-addr" wx:if="{{addr?true:false}}">
+    <view class="receiver"><text>收货人:{{userName}}</text><text>020-81167888></text></view>
+    <view class="address">收货地址:<text>{{addr}}</text></view>
+  </view>
+  <image class="border-image" src="../../img/cart_border@2x.png"></image>
+  <view class="order-list">
+    <view class="order-item"> 
+      <image></image>
+      <view class="right">
+        <view class="introduce"><text></text></view>
+        <view class="cash"><text class="price">￥</text><text>{{}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="money"><text>商品金额</text><text>￥</text></view>
+    <view class="deliver-fee"><text>运费</text><text>￥</text></view>
+    <view><button type="primary" bindtap="toLogin">登录后下单支付</button></view>
+  </view>
+</view>

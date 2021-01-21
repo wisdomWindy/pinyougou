@@ -1,0 +1,38 @@
+/* pages/cart/cart.wxss */
+.cart-container{
+  position: relative;
+  height:100vh
+}
+.cart-container .title{
+  width:750rpx;
+  height:100rpx;
+  margin-left:30rpx;
+}
+.cart-container .title image{
+  width:60rpx;
+  height:60rpx;
+}
+
+.cart-container  .pay{
+  display: flex;
+  align-items: center;
+  height:100rpx;
+  width:750rpx;
+  justify-content: space-between;
+  font-size:10px;
+  color:#999;
+  position: absolute;
+  bottom:0;
+}
+.cart-container  .pay .submit-pay{
+  background-color:#f45;
+  color:#fff;
+  font-size:10px;
+  width:200rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align:center;
+}
+.cart-container  .pay  .total-price{
+  color:#f45;
+}

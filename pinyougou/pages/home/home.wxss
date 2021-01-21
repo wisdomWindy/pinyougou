@@ -1,0 +1,46 @@
+/* pages/home/home.wxss */
+.home-container image{
+  width:750rpx;
+  height:400rpx;
+}
+.home-container .navigator{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom:20rpx;
+}
+.home-container .navigator image{
+  width:150rpx;
+  height:150rpx;
+  margin-top:20rpx;
+}
+.home-container .floors .floor .floor-title{
+  width:750rpx;
+  height:59rpx;
+}
+.home-container .floors .floor .product-list{
+  display: flex;
+}
+.home-container .floors .floor .product-list .left{
+  height:600rpx;
+  width:250rpx;
+  margin-left:10rpx;
+}
+.home-container .floors .floor .product-list .left image{
+  width:250rpx;
+  height:500rpx;
+}
+.home-container .floors .floor .product-list .right{
+  display: flex;
+  flex-wrap: wrap;
+  width:500rpx;
+  height:250rpx;
+  margin-left:20rpx;
+}
+.home-container .floors .floor .product-list .right navigator{
+  margin-left:10rpx;
+}
+.home-container .floors .floor .product-list .right navigator image{
+  width:220rpx;
+  height:250rpx;
+}

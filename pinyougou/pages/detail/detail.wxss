@@ -1,0 +1,119 @@
+/* pages/detail/detail.wxss */
+.detail-container{
+  position: relative;
+}
+.detail-container .top image{
+  width:750rpx;
+  height:300rpx;
+}
+.detail-container .top .text .price{
+  color:#f45;
+  font-size:16px;
+}
+.detail-container .top .text .detail-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height:100rpx;
+}
+.detail-container .top .text .detail-info .goods-name{
+  width:400rpx;
+  height:100rpx;
+  line-height:100rpx;
+  font-size:13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.detail-container .top .text .detail-info .start{
+  font-size:12px;
+  height:100rpx;
+  line-height:100rpx;
+  width:200rpx;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail-container .top .text .detail-info .start image{
+  width:40rpx;
+  height:40rpx;
+}
+.detail-container .top .text .deliver{
+  font-size:10px;
+  color:#999;
+}
+.detail-container .current-info{
+  font-size:14px;
+  color:#999;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+.detail-container .region{
+  font-size:14px;
+  color:#999;
+}
+.detail-container .tabs{
+  font-size:13px;
+  color:#999;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height:100rpx;
+  margin-bottom:20rpx;
+}
+.detail-container .tabs view{
+  width: 50%;
+  height:100rpx;
+  line-height:100rpx;
+  text-align:center;
+  box-sizing: border-box;
+}
+.detail-container .tabs .active{
+  border-bottom:3px solid #f45;
+}
+.detail-container .footer{
+  position: fixed;
+  bottom:0;
+  display: flex;
+  width:750rpx;
+  justify-content: space-between;
+  align-items: center;
+  height:100rpx;
+  background-color:#fff;
+}
+.detail-container .footer .custom-serve{
+  font-size:10px;
+  text-align:center;
+  width:175rpx;
+  height:200rpx;
+}
+.detail-container .footer .custom-serve image{
+  width:100rpx;
+  height:100rpx;
+}
+.detail-container .footer .cart{
+  font-size:10px;
+  text-align:center;
+  width:175rpx;
+  height:200rpx;
+}
+.detail-container .footer .cart image{
+  width:100rpx;
+  height:100rpx;
+}
+.detail-container .footer .add-cart{
+  width:200rpx;
+  background-color:#ff9911;
+  height:100rpx;
+  text-align: center;
+  line-height:100rpx;
+  color:#fff;
+}
+.detail-container .footer .buy{
+  width:210rpx;
+  color:#fff;
+  background-color:#f45;
+  height:100rpx;
+  text-align: center;
+  line-height:100rpx;
+}
