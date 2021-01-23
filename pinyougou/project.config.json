@@ -80,6 +80,13 @@
         {
           "name": "pages/order/order",
           "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/orderList/orderList",
+          "pathName": "pages/orderList/orderList",
+          "query": "type=1&pageIndex=1&pageSize=5",
           "scene": null
         }
       ]

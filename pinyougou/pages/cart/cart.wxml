@@ -16,6 +16,6 @@
       <view>合计￥<text class="total-price">{{totalPrice}}</text></view>
       <view><text>包含运费</text></view>
     </view>
-    <view class="submit-pay" bindtap="orderPay"><text>去结算({{checks.length}})</text></view>
+    <view class="submit-pay" bindtap="orderPay"><text>去结算({{goodsNumber}})</text></view>
   </view>
 </view>

@@ -11,7 +11,10 @@ goodsList:[],
 checks:[],
 allChecked:true,
 totalPriceList:{},
-totalPrice:0
+totalPrice:0,
+goodsNumber:0,
+numberList:{},
+order_price:0
   },
 
   /**
@@ -62,32 +65,49 @@ bindCheckboxChange(e){
     })
 },
 countTotalPrice(e){
+  console.log(e)
+
+ this.data.numberList[e.detail.price.id]=e.detail.price.goods_number;
+ console.log(this.data.numberList)
+ console.log()
+ this.data.goodsNumber=0;
+ for(var key in this.data.numberList){
+   this.data.goodsNumber+= this.data.numberList[key]
+ }
+
 this.data.totalPriceList[e.detail.price.id]=e.detail.price.totalPrice;
-for(var i=0;i<this.data.goodsList.length;i++){
-  if(this.data.goodsList[i].id==e.detail.price.id){
-    this.data.goodsList[i].goods_number=e.detail.price.goods_number;
-  }
-}
+console.log(this.data.goods)
+this.setData({
+  goodsNumber:this.data.goodsNumber
+},()=>{
+  
+  this.data.goodsNumber=0
+})
 
 /*  console.log(e.detail.price) */
 console.log(this.data.totalPriceList)
-
-for(var key in this.data.totalPriceList){
-  if(key in this.data.checks){
+console.log(this.data.checks)
+for(var i=0;i<this.data.checks.length;i++){
+  if(this.data.totalPriceList[this.data.checks[i]]){
     this.data.totalPrice+=this.data.totalPriceList[key]
   }
 }
+
+console.log(this.data.totalPrice)
+this.data.order_price=this.data.totalPrice;
   this.setData({
     totalPrice:this.data.totalPrice
   },()=>{
+   
     this.data.totalPrice=0;
   })
 },
 orderPay(){
+  console.log(this.data.goodsList)
   const goods=this.data.goodsList;
-  goods.goods_number=0;
+  console.log(this.data.order_price)
   wx.navigateTo({
-    url:"../../pages/order/order?order_price="+this.data.totalPrice+"&goods="+goods
+    url:"../../pages/order/order?order_price="+this.data.order_price+"&goods="+JSON.stringify(goods)+"&goods_number="+JSON.stringify(this.data.numberList)
   })
 },
   /**
@@ -98,10 +118,11 @@ orderPay(){
       console.log(res)
       res.data.message.forEach((ele,index)=>{
         this.data.checks.push(ele.goods_id)
-        
       })
       this.setData({
         checks:this.data.checks
+      },()=>{
+        this.data.checks=[]
       })
       this.setData({
         goodsList:res.data.message
@@ -117,9 +138,8 @@ orderPay(){
           })
         }
       })
-
+      
     })
-    
   },
 
   /**

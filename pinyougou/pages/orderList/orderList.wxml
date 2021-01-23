@@ -1,0 +1,23 @@
+<!--pages/orderList/orderList.wxml-->
+<view class="orderList-container">
+  <view class="tabs">
+    <view class="tab-item {{activeTab==0?'active':''}}" bindtap="switchActiveTab" data-id="0"><text>全部</text></view>
+    <view class="tab-item {{activeTab==1?'active':''}}" bindtap="switchActiveTab" data-id="1"><text>待付款</text></view>
+    <view class="tab-item {{activeTab==2?'active':''}}" bindtap="switchActiveTab" data-id="2"><text>已付款</text></view>
+    <view class="tab-item {{activeTab==3?'active':''}}" bindtap="switchActiveTab" data-id="3"><text>退款/退货</text></view>
+  </view>
+  <view class="order-goods">
+    <view class="order-goods-item">
+      <image></image>
+      <view class="right">
+        <view class="goods-name">
+          <text></text>
+        </view>
+        <view class="others"><text class='price'>￥98</text><text class="number">x1</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="paymoney">
+    <button bindtap="paymoney">付款</button>
+  </view>
+</view>

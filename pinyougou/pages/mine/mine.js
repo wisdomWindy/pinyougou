@@ -8,14 +8,14 @@ Page({
    */
   data: {
     nickName:"",
-    profile:""
+    profile:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -37,33 +37,67 @@ Page({
     }
   },
 login(){
-  wx.login({
-    success:(code)=>{
-     /*  console.log(code) */
-      const codes=code;
-      wx.getUserInfo({
-        success:(res)=>{
-          console.log(res);
-          wx.setStorageSync('nickName', res.userInfo.nickName);
-          wx.setStorageSync('profile', res.userInfo.avatarUrl);
-          this.setData({
-            nickName:res.userInfo.nickName,
-            profile:res.userInfo.avatarUrl
-          })
-          console.log(codes.code)
-          axios.post("users/wxlogin",{
-            code:codes.code,
-            encryptedData:res.encryptedData,
-            iv:res.iv,
-            rawData:JSON.stringify(res.rawData),
-            signature:"4848cec1c6130103a6797e2c85b1bcdc4ca4766d"
-          }).then((res)=>{
+  console.log(1)
+  wx.getSetting({
+    success:(res)=> {
+      /* console.log(res) */
+      if (!res.authSetting['scope.userInfo']) {
+       /*  wx.openSetting({
+          withSubscriptions: true,
+          success:(res)=>{
+            console.log(res)
+          }
+        }) */
+        /* wx.authorize({
+          scope: 'scope.userInfo',
+          fail:(res)=>{
+          console.log(res)
+          },
+          success:(res)=>{
+            console.log(res)
+          }
+        }) */
+      }else{
+        let codes;
+        wx.login({
+          success:(code)=>{
+            codes=code; 
+          }
+        })
+        wx.getUserInfo({
+          success:(res)=>{
             console.log(res);
-          })
-        }
-      })
+            wx.setStorageSync('nickName', res.userInfo.nickName);
+            wx.setStorageSync('profile', res.userInfo.avatarUrl);
+            this.setData({
+              nickName:res.userInfo.nickName,
+              profile:res.userInfo.avatarUrl
+            })
+            console.log(codes.code)
+            axios.post("users/wxlogin",{
+              code:codes.code,
+              encryptedData:res.encryptedData,
+              iv:res.iv,
+              rawData:JSON.stringify(res.rawData),
+              signature:res.signature
+            }).then((res)=>{
+              console.log(res);
+              wx.checkSession({
+                success: (res) => {
+                  console.log(res)
+                },
+                fail:()=>{
+                  this.login();
+                }
+              })
+            })
+          }
+        })
+      }
     }
   })
+  
+  
   
 },
   /**

@@ -3,7 +3,7 @@
   <view class="profile">
     <image src="{{profile}}"></image>
     <view class="profile-name"><text>{{nickName}}</text></view>
-    <button type="primary" bindtap="login">授权登录</button>
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="login">授权登录</button>
   </view>
   <view class="cords">
     <view class="start-shop">
