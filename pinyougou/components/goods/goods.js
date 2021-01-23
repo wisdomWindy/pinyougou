@@ -25,7 +25,8 @@ Component({
     this.data.totalPrice=this.data.goodsNumber*this.data.item.goods_price;
     this.triggerEvent("countGoodsNumber",{price:{
       id:this.data.item.goods_id,
-      totalPrice:this.data.totalPrice
+      totalPrice:this.data.totalPrice,
+      goods_number:this.data.goodsNumber
     }})
   },
   methods: {
@@ -40,7 +41,7 @@ Component({
       this.triggerEvent("countGoodsNumber",{price:{
         id:this.data.item.goods_id,
         totalPrice:total,
-        goods_number:goodsNumber
+        goods_number:this.data.goodsNumber
       }})
       this.setData({
         goodsNumber:this.data.goodsNumber
@@ -60,7 +61,7 @@ Component({
       this.triggerEvent("countGoodsNumber",{price:{
         id:this.data.item.goods_id,
         totalPrice:total,
-        goods_number:goodsNumber
+        goods_number:this.data.goodsNumber
       }})
     }
   }
