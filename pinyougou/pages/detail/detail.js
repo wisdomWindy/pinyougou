@@ -8,7 +8,7 @@ Page({
   data: {
 goodsId:0,
 goodsInfo:[],
-region: ['广东省', '广州市', '海珠区'],
+region: "",
 customItem: '全部',
 currentId:1,
 starStatus:false,
@@ -27,7 +27,7 @@ starUrl:""
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -38,7 +38,8 @@ starUrl:""
       console.log(res);
       this.setData({
         goodsInfo:res.data.message,
-        starUrl:this.data.startUrls[+this.data.starUrl]
+        starUrl:this.data.startUrls[+this.data.starStatus],
+        region:wx.getStorageSync('addr')
       })
     })
   },
@@ -55,6 +56,38 @@ switch(){
 bindRegionChange(e){
   this.setData({
     region:e.detail.value
+  })
+},
+chooseAddress(){
+  
+  wx.chooseAddress({
+    success: (result) => {
+      console.log(result)
+      let addr=result.provinceName+result.cityName+result.countyName+result.detailInfo;
+      wx.setStorageSync('addr', addr)
+      this.setData({
+        region:wx.getStorageSync('addr')
+      })
+    },
+    fail:(err)=>{
+      if(!wx.getStorageSync('addr')){
+        wx.showModal({
+          title:"提示",
+          content:"请去我的页面打开授权",
+          confirmText:"确定",
+          showCancel:false,
+          confirmColor:"#999",
+          success:(res)=>{
+            if(res.confirm){
+              wx.switchTab({
+                url: '../../pages/mine/mine',
+              })
+              wx.setStorageSync('data', this.data)
+            }
+          }
+        })
+      }
+    }
   })
 },
 call(){

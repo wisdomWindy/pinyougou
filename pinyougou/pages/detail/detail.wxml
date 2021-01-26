@@ -13,21 +13,24 @@
       <view class="price">￥<text>{{goodsInfo.goods_price}}</text></view>
       <view class="detail-info">
         <view class="goods-name"><text>{{goodsInfo.goods_name}}</text></view>
-        <view class="start" bindtap="star">|<image src="{{starUrl}}"></image><text>收藏</text></view>
+        <view class="start" bindtap="star">
+          <view class="left"><text>|</text></view>
+          <view class="right"><image src="{{starUrl}}" class="star"></image><text class="star-text">收藏</text></view></view>
       </view>
       <view class="deliver"><text>快递：免运费</text></view>
     </view>
   </view>
   <view class="current-info">
-    <view>促销<text>满300减30</text></view>
-    <view>已选<text>黑色/s/1件</text></view>
+    <view><text class="title">促销</text><text>满300减30</text></view>
+    <view><text class="title">已选</text><text>黑色/s/1件</text></view>
   </view>
-  <view class="region">
-  <picker mode="region"  value="{{region}}" bindchange="bindRegionChange" custom-item="{{customItem}}">
+  <view class="region" bindtap="chooseAddress">
+ <!--  <picker mode="region"  value="{{region}}" bindchange="bindRegionChange" custom-item="{{customItem}}">
     <view class="picker">
-      送至：{{region[0]}}，{{region[1]}}，{{region[2]}}
+      送至：{{region[0]}} {{region[1]}} {{region[2]}}
     </view>
-  </picker>
+  </picker> -->
+  <view> <text class="title">送至</text><text>{{region?region:"请选择收货地址"}}</text></view>
   </view>
   <view class="tabs">
     <view bindtap="active" id="1" class="{{currentId ==1?'active':''}}"><text>图文介绍</text></view>
