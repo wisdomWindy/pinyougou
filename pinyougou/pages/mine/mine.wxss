@@ -7,7 +7,7 @@
 .mine-container .profile{
   width:750rpx;
   height:400rpx;
-  background-color:#eee;
+  background-color:#f45;
 }
 .mine-container .profile image{
   width:150rpx;

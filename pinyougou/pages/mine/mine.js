@@ -38,6 +38,9 @@ Page({
   },
 login(){
   console.log(1)
+  wx.showLoading({
+    title: '加载中',
+  })
   wx.getSetting({
     success:(res)=> {
       /* console.log(res) */
@@ -60,8 +63,12 @@ login(){
       }else{
         let codes;
         wx.login({
-          success:(code)=>{
-            codes=code; 
+          success:(res)=>{
+            console.log(res)
+            codes=res; 
+            wx.hideLoading({
+              success: (res) => {},
+            })
           }
         })
         wx.getUserInfo({
@@ -72,6 +79,11 @@ login(){
             this.setData({
               nickName:res.userInfo.nickName,
               profile:res.userInfo.avatarUrl
+            })
+            wx.chooseAddress({
+              success: (result) => {
+                wx.setStorageSync('addr', result.provinceName+result.cityName+result.countyName+result.detailInfo)
+              },
             })
             console.log(codes.code)
             axios.post("users/wxlogin",{
