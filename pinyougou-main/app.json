@@ -6,7 +6,8 @@
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/order/order",
-    "pages/orderList/orderList"
+    "pages/orderList/orderList",
+    "pages/goodsList/goodsList"
   ],
   "window":{
     "backgroundTextStyle":"light",

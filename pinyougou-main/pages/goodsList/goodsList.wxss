@@ -1,0 +1,26 @@
+/* pages/goodsList/goodsList.wxss */
+.goodsList-container{
+  width:750rpx;
+ /*  box-sizing: border-box; */
+}
+.goodsList-container .tabs{
+  display: flex;
+  height:100rpx;
+  justify-content: space-around;
+  margin-bottom:20rpx;
+  padding-left:10rpx;
+  padding-right:10rpx;
+}
+.goodsList-container .tabs .tab-item{
+  width:250rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align:center;
+  box-sizing: border-box;
+}
+.goodsList-container .tabs .active{
+  border-bottom:1px solid #f45;
+}
+.goodsList-container .goods-list{
+  width:750rpx;
+}
