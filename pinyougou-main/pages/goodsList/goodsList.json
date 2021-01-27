@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "goodslist":"../../components/goodslist/goodslist"
+  },
+  "navigationBarTitleText":"商品列表"
+}

@@ -88,6 +88,11 @@
           "pathName": "pages/orderList/orderList",
           "query": "type=1&pageIndex=1&pageSize=5",
           "scene": null
+        },
+        {
+          "name": "pages/goodsList/goodsList",
+          "pathName": "pages/goodsList/goodsList",
+          "scene": null
         }
       ]
     }

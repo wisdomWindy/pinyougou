@@ -42,6 +42,9 @@ starUrl:""
         region:wx.getStorageSync('addr')
       })
     })
+    axios.get("goods/detail?goods_id=72").then(res=>{
+      console.log(res)
+    })
   },
   active(e){
     this.setData({
