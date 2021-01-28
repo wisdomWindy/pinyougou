@@ -1,0 +1,80 @@
+/* pages/feedback/feedback.wxss */
+.feedback-container{
+  background-color:#ccc;
+  display:flow-root;
+  height:100vh;
+}
+.feedback-container .tabs{
+  display: flex;
+  align-items: center;
+  height:100rpx;
+}
+.feedback-container .tabs .tab-item{
+  width:375px;
+  height:100rpx;
+  line-height:100rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.feedback-container .tabs .active{
+  border-bottom:1px solid #f45;
+}
+.feedback-container .question-type .question-title{
+  padding-left:20rpx;
+}
+.feedback-container .question-type .question-content{
+  display: flex;
+  align-items: center;
+  margin-top:20rpx;
+  flex-wrap: wrap;
+}
+.feedback-container .question-type .question-content .question-item{
+  text-align: center;
+  width:220rpx;
+  height:50rpx;
+  line-height:50rpx;
+  margin-left:20rpx;
+  font-size:13px;
+  background-color:#fff;
+  margin-bottom:20rpx;
+}
+.feedback-container .question-description{
+  margin-bottom:20rpx;
+  position: relative;
+}
+.feedback-container .question-description .description-content{
+  width:700rpx;
+  height:600rpx;
+  margin:20rpx auto;
+  background-color:#fff;
+  font-size:12px;
+}
+.feedback-container .question-description .upload{
+  width:120rpx;
+  height:100rpx;
+  margin-left:20rpx;
+  position: absolute;
+  bottom:20rpx;
+  left:20rpx;
+  z-index:3;
+}
+.feedback-container .question-description .upload-btn{
+  width:110rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size:12px;
+  padding:0;
+}
+.feedback-container .submit .submit-btn{
+  background-color:red;
+  color:#fff;
+  width:200rpx;
+  height:100rpx;
+  margin-right:20rpx;
+  font-size:14px;
+  padding:0;
+  text-align: center;
+  line-height:100rpx;
+  margin-bottom:20rpx;
+}

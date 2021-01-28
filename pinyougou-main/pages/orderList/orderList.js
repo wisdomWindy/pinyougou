@@ -27,8 +27,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    axios.get("my/orders/all?type=1&pageIndex=1&pageSize=5").then((res)=>{
+    /* 使用token */
+    /* axios.get("my/orders/all?type=1&pageIndex=1&pageSize=5").then((res)=>{
       console.log(res)
+    }) */
+    /* 使用本地数据 */
+    let goodsIds=wx.getStorageSync("goodsCart")
+    axios.get("goods/goodslist?goods_ids="+goodsIds.join(",")).then(res=>{
+      console.log(res)
+      this.setData({
+        goodsInfos:res.data.message
+      })
     })
   },
 switchActiveTab(e){

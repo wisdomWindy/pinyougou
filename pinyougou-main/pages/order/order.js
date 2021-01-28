@@ -24,6 +24,10 @@ Page({
       this.data.goods_number=JSON.parse(options.goods_number);
       console.log(this.data.goods)
       console.log(this.data.goods_number)
+      this.setData({
+        goods:this.data.goods,
+        order_price:this.data.order_price
+      })
     }
     
   },

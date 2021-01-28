@@ -11,6 +11,7 @@
   width: 187rpx;
   text-align: center;
   line-height: 80rpx;
+
 }
 
 .orderList-container .tabs .active {
@@ -25,6 +26,7 @@
 .orderList-container .order-goods .order-goods-item {
   display: flex;
   align-items: center;
+  margin-bottom:20rpx;
 }
 
 .orderList-container .order-goods .order-goods-item image {
@@ -33,11 +35,14 @@
 }
 
 .orderList-container .order-goods .order-goods-item .right .goods-name {
-  white-space: nowrap;
+ /*  white-space: nowrap; */
   overflow: hidden;
-  text-overflow: ellipsis;
-  width: 400rpx;
-  height: 150rpx;
+ /*  text-overflow: ellipsis; */
+  display:-webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 550rpx;
+  /* height: 150rpx; */
 }
 
 .orderList-container .order-goods .order-goods-item .right .others {

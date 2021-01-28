@@ -1,8 +1,10 @@
 <!--components/goodslist/goodslist.wxml-->
 <view class="goodslist-container">
-  <image src=""></image>
-  <view class="introduce">
-    <view class="goods-name"><text></text></view>
-    <view class="price"><text>￥</text></view>
-  </view>
+  <navigator url="/pages/detail/detail?goods_id={{goods.goods_id}}" class="navigator" hover-class="navigator-hover">
+    <image class="image" src="{{goods.goods_small_logo}}"></image>
+    <view class="introduce">
+      <view class="goods-name"><text>{{goods.goods_name}}</text></view>
+      <view class="price"><text>￥{{goods.goods_price}}</text></view>
+    </view>
+  </navigator>
 </view>

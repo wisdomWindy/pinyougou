@@ -11,10 +11,12 @@
         <view class="title"><text>/{{item.cat_name}}/</text></view>
         <view class="products-wrapper">
           <block wx:for="{{item.children}}" wx:key="index">
-            <view class="products">
-              <image src="{{item.cat_icon}}"></image>
-              <view class="product-text"><text>{{item.cat_name}}</text></view>
-            </view>
+            <navigator url="/pages/goodses/goodses?cid={{item.cat_id}}" hover-class="navigator-hover">
+              <view class="products">
+                <image src="{{item.cat_icon}}"></image>
+                <view class="product-text"><text>{{item.cat_name}}</text></view>
+              </view>
+            </navigator>
           </block>
         </view>
       </view>

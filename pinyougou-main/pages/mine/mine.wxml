@@ -1,9 +1,12 @@
 <!--pages/mine/mine.wxml-->
 <view class="mine-container">
   <view class="profile">
-    <image src="{{profile}}"></image>
-    <view class="profile-name"><text>{{nickName}}</text></view>
-    <button type="primary" open-type="getUserInfo" bindgetuserinfo="login">授权登录</button>
+    <image class="background-img" src="{{profile}}"></image>
+    <view class="preground">
+      <image class="cover-image" src="{{profile}}"></image>
+      <view class="profile-name"><text>{{nickName}}</text></view>
+      <button type="primary" open-type="getUserInfo" bindgetuserinfo="login">授权登录</button>
+    </view>
   </view>
   <view class="cords">
     <view class="start-shop">
@@ -23,6 +26,17 @@
       <view><text>我的足迹</text></view>
     </view>
   </view>
+  <view class="user-shoping-info">
+    <view class="user-info-title"><text>我的订单</text></view>
+    <view class="user-info-content">
+      <block wx:for="{{userShopingInfo}}" wx:key="index">
+        <navigator class="shopinfo-navigator" url="/pages/order/order?type={{item.type}}" hover-class="navigator-hover">
+          <view class="{{item.picUrl}} navigator-img"></view>
+          <view class="navigator-name">{{item.name}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
   <view class="addr-setting">
     <view><text>收货地址管理</text></view>
   <!--   <image src="../../assets/catIcon.png"></image> -->
@@ -33,8 +47,10 @@
       <view><text>400-618-4000</text></view>
     </view>
     <view class="menu-item">
-      <view><text>意见反馈</text></view>
-      <image></image>
+      <navigator url="/pages/feedback/feedback" hover-class="navigator-hover">
+        <view><text>意见反馈</text></view>
+        <image></image>
+      </navigator>
     </view>
     <view class="menu-item">
       <view><text>关于我们</text></view>
