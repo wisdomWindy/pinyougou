@@ -1,0 +1,31 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="feedback-container">
+  <view class="tabs">
+   <view class="tab-item {{currentId==1?'active':''}}" data-id="1" bindtap="active">
+     <text>体验问题</text>
+   </view>
+   <view class="tab-item {{currentId==2?'active':''}}" data-id="2" bindtap="active">
+     <text>商品、商家投诉</text>
+   </view>
+  </view>
+  <view class="question-type">
+    <view class="question-title">问题种类</view>
+    <view class="question-content">
+      <block wx:for="{{questions}}" wx:key="index">
+          <view class="question-item"><text>{{item}}</text></view>
+      </block>
+    </view>
+  </view>
+  <view class="question-description">
+    <textarea class="description-content" value="{{textValue}}" bindinput="handleInput" placeholder="请描述一下您的问题" confirm-type="send" auto-focus show-confirm-bar/>
+    <view class="upload" bindtap="uploadImage">
+       <button class="upload-btn" >+</button>
+    </view>
+  </view>
+  <view class="submit">
+    <button class="submit-btn" type="warn" bindtap="submitForm">
+      <icon type="success_no_circle" size="20" color="white"></icon>
+      提交
+    </button>
+  </view>
+</view>

@@ -1,9 +1,12 @@
 /* pages/goodsList/goodsList.wxss */
 .goodsList-container{
   width:750rpx;
+  position: relative;
  /*  box-sizing: border-box; */
 }
 .goodsList-container .tabs{
+  position: absolute;
+  z-index:3;
   display: flex;
   height:100rpx;
   justify-content: space-around;
@@ -12,15 +15,20 @@
   padding-right:10rpx;
 }
 .goodsList-container .tabs .tab-item{
-  width:250rpx;
+  width:240rpx;
   height:100rpx;
   line-height:100rpx;
+  font-size:16px;
   text-align:center;
   box-sizing: border-box;
+  pointer-events: auto;
 }
 .goodsList-container .tabs .active{
   border-bottom:1px solid #f45;
 }
 .goodsList-container .goods-list{
+  position: absolute;
+  top:120rpx;
   width:750rpx;
+  height:100vh;
 }

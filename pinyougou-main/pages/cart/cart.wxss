@@ -21,8 +21,10 @@
   justify-content: space-between;
   font-size:10px;
   color:#999;
-  position: absolute;
+  position: fixed;
   bottom:0;
+  z-index:3;
+  background-color:#fff;
 }
 .cart-container  .pay .submit-pay{
   background-color:#f45;

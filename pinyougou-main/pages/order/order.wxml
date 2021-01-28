@@ -9,16 +9,18 @@
   </view>
   <image class="border-image" src="../../img/cart_border@2x.png"></image>
   <view class="order-list">
-    <view class="order-item"> 
-      <image></image>
+    <block wx:for="{{goods}}" wx:key="index">
+      <view class="order-item"> 
+      <image src="{{item.goods_small_logo}}"></image>
       <view class="right">
-        <view class="introduce"><text></text></view>
-        <view class="cash"><text class="price">￥</text><text>{{}}</text></view>
+        <view class="introduce"><text>{{item.goods_name}}</text></view>
+        <view class="cash"><text class="price">￥</text><text>{{item.goods_price}}</text></view>
       </view>
     </view>
+    </block>
   </view>
   <view class="footer">
-    <view class="money"><text>商品金额</text><text>￥</text></view>
+    <view class="money"><text>商品金额</text><text>￥{{order_price}}</text></view>
     <view class="deliver-fee"><text>运费</text><text>￥</text></view>
     <view><button type="primary" bindtap="toLogin">登录后下单支付</button></view>
   </view>

@@ -1,0 +1,13 @@
+<!--pages/goodsList/goodsList.wxml-->
+<view class="goodsList-container">
+  <view class="tabs">
+    <block wx:for="{{tabs}}" wx:key="id">
+      <view class="tab-item {{item.isActive?'active':''}}" bindtap="activeTab" data-index="{{index}}"><text>{{item.name}}</text></view>
+    </block>
+  </view>
+  <scroll-view scroll-y="true" class="goods-list" hidden="{{currentId!=1}}" bindscrolltolower="onscrollLower">
+    <block wx:for="{{goods}}" wx:key="index">
+      <goodslist goods="{{item}}" ></goodslist>
+    </block>
+  </scroll-view>
+</view>

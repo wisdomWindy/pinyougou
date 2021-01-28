@@ -7,21 +7,37 @@
 .mine-container .profile{
   width:750rpx;
   height:400rpx;
-  background-color:#f45;
+ /*  background-color:#f45; */
+  position: relative;
 }
-.mine-container .profile image{
+.mine-container .profile .background-img{
+  width:750rpx;
+  height:400rpx;
+  position: absolute;
+  z-index:1;
+  opacity:0.8;
+  filter: blur(10rpx);
+}
+.mine-container .profile .preground{
+  position: absolute;
+  z-index:3;
+  left:50%;
+  transform:translate(-50%);
+}
+.mine-container .profile .preground .cover-image{
   width:150rpx;
   height:150rpx;
   border-radius:50%;
   margin-top:20rpx;
   margin-left:50%;
   transform:translate(-50%);
+
 }
-.mine-container .profile .profile-name{
+.mine-container .profile .preground .profile-name{
   text-align:center;
   margin-bottom:30rpx;
 }
-.mine-container .profile button{
+.mine-container .profile .preground button{
   height:80rpx;
   width:260rpx;
   line-height:40rpx;
@@ -42,6 +58,45 @@
 .mine-container .cords view{
   text-align:center;
   font-size:12px;
+}
+.mine-container .user-shoping-info {
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  background-color:#fff;
+}
+.mine-container .user-shoping-info .user-info-title{
+  padding-left:20rpx;
+  height:60rpx;
+  width:750rpx;
+  line-height:60rpx;
+  border-bottom:1px solid #ccc;
+}
+.mine-container .user-shoping-info .user-info-content {
+  display: flex;
+  align-items:center;
+  height:150rpx;
+  width:750rpx;
+}
+
+.mine-container .user-shoping-info .user-info-content .shopinfo-navigator {
+  width:200rpx;
+  height:150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mine-container .user-shoping-info .user-info-content .shopinfo-navigator .navigator-img{
+  font-size:20px;
+  color:#f45;
+  width:50rpx;
+  height:50rpx;
+  text-align: center;
+  line-height:50rpx;
+}
+.mine-container .user-shoping-info .user-info-content .shopinfo-navigator .navigator-name{
+  font-size:13px;
+  text-align: center;
 }
 .mine-container .addr-setting{
  background-color:#fff;

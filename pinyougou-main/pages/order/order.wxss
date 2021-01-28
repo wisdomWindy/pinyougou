@@ -46,17 +46,19 @@
   height:200rpx;
 }
 .order-container .order-list .order-item .right .introduce{
-  height:200rpx;
+
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width:200rpx;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  width:550rpx;
 }
 .order-container .order-list .order-item .right .cash{
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: center;
   padding:0 10rpx;
+ 
 }
 .order-container .order-list .order-item .right .cash .price{
   color:red;

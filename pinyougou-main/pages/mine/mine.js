@@ -9,6 +9,23 @@ Page({
   data: {
     nickName:"",
     profile:"",
+    userShopingInfo:[{
+      name:"全部订单",
+      picUrl:"iconfont icon-dingdan",
+      type:1
+    },{
+      name:"待付款",
+      picUrl:"iconfont icon-fukuantongzhi",
+      type:2
+    },{
+      name:"待收货",
+      picUrl:"iconfont icon-receipt-address",
+      type:3
+    },{
+      name:"退款/退货",
+      picUrl:"iconfont icon-tuikuan",
+      type:4
+    }]
   },
 
   /**
@@ -69,42 +86,43 @@ login(){
             wx.hideLoading({
               success: (res) => {},
             })
+            wx.getUserInfo({
+              success:(res)=>{
+                console.log(res);
+                wx.setStorageSync('nickName', res.userInfo.nickName);
+                wx.setStorageSync('profile', res.userInfo.avatarUrl);
+                this.setData({
+                  nickName:res.userInfo.nickName,
+                  profile:res.userInfo.avatarUrl
+                })
+                wx.chooseAddress({
+                  success: (result) => {
+                    wx.setStorageSync('addr', result.provinceName+result.cityName+result.countyName+result.detailInfo)
+                  },
+                })
+                console.log(codes)
+                axios.post("users/wxlogin",{
+                  code:codes.code,
+                  encryptedData:res.encryptedData,
+                  iv:res.iv,
+                  rawData:JSON.stringify(res.rawData),
+                  signature:res.signature
+                }).then((res)=>{
+                  console.log(res);
+                  wx.checkSession({
+                    success: (res) => {
+                      console.log(res)
+                    },
+                    fail:()=>{
+                      this.login();
+                    }
+                  })
+                })
+              }
+            })
           }
         })
-        wx.getUserInfo({
-          success:(res)=>{
-            console.log(res);
-            wx.setStorageSync('nickName', res.userInfo.nickName);
-            wx.setStorageSync('profile', res.userInfo.avatarUrl);
-            this.setData({
-              nickName:res.userInfo.nickName,
-              profile:res.userInfo.avatarUrl
-            })
-            wx.chooseAddress({
-              success: (result) => {
-                wx.setStorageSync('addr', result.provinceName+result.cityName+result.countyName+result.detailInfo)
-              },
-            })
-            console.log(codes.code)
-            axios.post("users/wxlogin",{
-              code:codes.code,
-              encryptedData:res.encryptedData,
-              iv:res.iv,
-              rawData:JSON.stringify(res.rawData),
-              signature:res.signature
-            }).then((res)=>{
-              console.log(res);
-              wx.checkSession({
-                success: (res) => {
-                  console.log(res)
-                },
-                fail:()=>{
-                  this.login();
-                }
-              })
-            })
-          }
-        })
+        
       }
     }
   })

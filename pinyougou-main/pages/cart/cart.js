@@ -69,7 +69,6 @@ countTotalPrice(e){
 
  this.data.numberList[e.detail.price.id]=e.detail.price.goods_number;
  console.log(this.data.numberList)
- console.log()
  this.data.goodsNumber=0;
  for(var key in this.data.numberList){
    this.data.goodsNumber+= this.data.numberList[key]
@@ -87,18 +86,18 @@ this.setData({
 /*  console.log(e.detail.price) */
 console.log(this.data.totalPriceList)
 console.log(this.data.checks)
+console.log(this.data.totalPrice)
 for(var i=0;i<this.data.checks.length;i++){
   if(this.data.totalPriceList[this.data.checks[i]]){
-    this.data.totalPrice+=this.data.totalPriceList[key]
+    this.data.totalPrice+=this.data.totalPriceList[this.data.checks[i]]
   }
 }
 
 console.log(this.data.totalPrice)
-this.data.order_price=this.data.totalPrice;
+/* this.data.order_price=this.data.totalPrice; */
   this.setData({
     totalPrice:this.data.totalPrice
   },()=>{
-   
     this.data.totalPrice=0;
   })
 },
@@ -114,7 +113,14 @@ orderPay(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    axios.get("goods/goodslist?goods_ids=140,395").then(res=>{
+    console.log(wx.getStorageSync("goodsCart"))
+    /* this.data.goodsList=this.data.goodsIds.concat(wx.getStorageSync("goodsCart"))
+    this.setData({
+      goodsList:this.data.goodsList
+    }) */
+    console.log(this.data.goodsList)
+    let idString=wx.getStorageSync("goodsCart").join(",")
+    axios.get("goods/goodslist?goods_ids="+idString).then(res=>{
       console.log(res)
       res.data.message.forEach((ele,index)=>{
         this.data.checks.push(ele.goods_id)
@@ -136,6 +142,7 @@ orderPay(){
               totalPrice:total
             })
           })
+          this.data.order_price=this.data.totalPrice;
         }
       })
       
