@@ -3,13 +3,20 @@
   <view class="title">
     <image></image><text>品优购生活馆</text>
   </view>
-  <view class="cart-item">
+<!--   <scroll-view scroll-y="true" class="cart-item"> -->
+    <!-- -->
+    <view class="empty-cart" wx:if="{{goodsList.length==0}}" >
+      <image src="http://img.mp.itc.cn/upload/20170401/2f523043409747a9b68c1bcf6fd353a5_th.jpeg"></image>
+    </view>
+   <!--   -->
+   <scroll-view class="items" wx:else scroll-y="true">
     <block wx:for="{{goodsList}}" wx:key="index">
-    <goods item="{{item}}" bindcheckChange="bindCheckboxChange" bindcountGoodsNumber="countTotalPrice"></goods>
-  </block>
-  </view>
-  
-  <view class="pay">
+        <goods item="{{item}}" bindcheckChange="bindCheckboxChange" bindcountGoodsNumber="countTotalPrice"></goods>
+      </block>
+    </scroll-view>
+  <!-- </scroll-view> -->
+  <view class="pay-wrapper">
+    <view class="pay">
     <view class="calcu">
       <checkbox value="{{all}}" checked="{{allChecked}}" />全选</view>
     <view>
@@ -18,4 +25,6 @@
     </view>
     <view class="submit-pay" bindtap="orderPay"><text>去结算({{goodsNumber}})</text></view>
   </view>
+  </view>
+  
 </view>
